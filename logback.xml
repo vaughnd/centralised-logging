@@ -1,0 +1,40 @@
+<configuration debug="false">
+  <!-- prevent per-message overhead for jul logging calls, e.g. Hornet -->
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <resetJUL>true</resetJUL>
+  </contextListener>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="MAIN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/cogserver.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/cogserver_%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>72</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/cogserver_json.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/cogserver_json_%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>72</maxHistory>
+    </rollingPolicy>
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+  </appender>
+
+  <logger name="myapp" level="INFO"/>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="MAIN"/>
+    <appender-ref ref="JSON"/>
+  </root>
+</configuration>
