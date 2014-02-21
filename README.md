@@ -1,6 +1,6 @@
 # Centralised Logging
 
-This is some sample code of how to do centralised logging.
+This is some sample code of how to do centralised logging. So you can get something as awesome as this: http://demo.kibana.org/
 
 Tech used:
 
