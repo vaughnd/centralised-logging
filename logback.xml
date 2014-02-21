@@ -11,9 +11,9 @@
   </appender>
 
   <appender name="MAIN" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>logs/cogserver.log</file>
+    <file>logs/myapp.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>logs/cogserver_%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>logs/myapp_%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>72</maxHistory>
     </rollingPolicy>
     <encoder>
@@ -22,9 +22,9 @@
   </appender>
 
   <appender name="JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>logs/cogserver_json.log</file>
+    <file>logs/myapp_json.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>logs/cogserver_json_%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>logs/myapp_json_%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>72</maxHistory>
     </rollingPolicy>
     <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
